@@ -11,14 +11,14 @@ function syncDdns() {
 		global $effect_domain,$domain_name;
 		foreach ($records as $record){
 			if(in_array( $record->RR,$effect_domain)){
-				echo $record->RR.".$domain_name prepaire update  ( origin ip ".$record->Value.") \n" ;
+				echo date("Y-m-d H:i:s") ."\t". $record->RR.".$domain_name prepare update  ( origin ip ".$record->Value.") \n" ;
 				if($record->Value != $ip ){
 					$res = updateRecord($client,$record,$ip);
 					if($res->RequestId){
-						echo $record->RR.".$domain_name is update to $ip ) \n";
+						echo date("Y-m-d H:i:s") ."\t". $record->RR.".$domain_name is update to $ip \n";
 					}
 				}else {
-					echo $record->RR.".$domain_name is no need for update \n" ;
+					echo date("Y-m-d H:i:s") ."\t". $record->RR.".$domain_name is no need for update \n" ;
 				}
 			} 
 		}
