@@ -8,7 +8,6 @@ function syncDdns() {
 	$records = getRecords($client);
 	if(count($records)){
 		$ip = getLocalIp();
-		var_dump($ip);
 		global $effect_domain,$domain_name;
 		foreach ($records as $record){
 			if(in_array( $record->RR,$effect_domain)){
