@@ -25,7 +25,7 @@ function syncDdns() {
 	}
 }
 function getLocalIp(){
-	$res = file_get_contents('http://2019.ip138.com/ic.asp');
+	$res = file_get_contents('http://2000019.ip138.com/');
 	preg_match('/\d+\.\d+\.\d+\.\d+/',$res,$matches);
 	return $matches[0];
 }
